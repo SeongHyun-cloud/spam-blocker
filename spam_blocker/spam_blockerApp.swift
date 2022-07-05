@@ -6,12 +6,34 @@
 //
 
 import SwiftUI
+import CallKit
 
 @main
 struct spam_blockerApp: App {
+
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                Home()
+                    .tabItem() {
+                        Image(systemName: "house")
+                        Text("홈")
+                       
+                    }
+                    
+                BlockedCalls()
+                    .tabItem() {
+                        Image(systemName: "phone")
+                        
+                        Text("차단된 전화")
+                    }
+                BlockedMsg()
+                    .tabItem() {
+                        Image(systemName: "message")
+                        Text("차단된 문자")
+                    }
+            }
         }
     }
 }
